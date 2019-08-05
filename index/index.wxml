@@ -1,0 +1,25 @@
+<view class="page">
+<!--图片比例为  16:9-->
+<view>选择海报样式</view>
+<view>开发者工具开启不校验域名，上线请小程序后台配置下载域名</view>
+<view class="styles-wrapper">
+  <view class="styles-item" wx:for="{{imgUrls}}" bindtap='changeBg' data-index="{{index}}" wx:key="bg-{{index}}">
+  <view class="tip {{index == changIndex ? 'show': ''}}">
+    <view>选</view>
+    <view>定</view>
+  </view>
+    <image src="{{item}}" class="image" />
+  </view>
+</view>
+<view class="mask {{changing == false ? '': 'hiden'}}">
+  <view class="box">
+      <canvas canvas-id="firstCanvas" style="width:{{canvasWidth*375+'px'}}; height:{{canvasWidth*375*1.777778+'px'}}" bindtap='preImg' class="canvas-img" ></canvas>
+      <view class="btn-wrapper">
+        <view class="btn change" bindtap='goChangeBg'>切换背景</view>
+        <view class="btn confirm" bindtap='saveImg'>生成海报</view>
+      </view>
+      <view class='close' bindtap='goChangeBg'>X</view>
+    </view>
+  </view>
+  <text>BY : wkiwi</text>
+</view>
